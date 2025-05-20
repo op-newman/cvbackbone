@@ -2,7 +2,9 @@
 # it is a sample file, you can modify it to fit your own needs.
 
 
-# 模型配置
+# set father config file
+_base_: "base.yaml"
+
 model:
   name: "lenet"
   input_size: [28, 28]    # MNIST image size

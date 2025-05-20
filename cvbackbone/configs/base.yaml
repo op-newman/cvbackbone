@@ -1,0 +1,64 @@
+# 基础训练配置
+training:
+  device: "cuda"  # or "cpu"
+  epochs: 10
+  batch_size: 64
+  seed: 42
+  
+  # 优化器配置
+  optimizer:
+    type: "adam"  # "sgd" or "adam"
+    lr: 0.001
+    momentum: 0.9       # for SGD
+    weight_decay: 0.0005
+
+  # 学习率调度
+  lr_scheduler:
+    type: "step"       # "step", "cosine" or "plateau"
+    step_size: 5        # for step
+    gamma: 0.1          # for step
+    T_max: 10           # for cosine
+    patience: 3         # for plateau
+
+# 数据配置
+data:
+  name: "mnist"
+  root: "../datasets"
+  num_workers: 4
+  shuffle: True
+  
+  # 数据增强
+  transforms:
+    train:
+      - name: "RandomRotation"
+        degrees: 15
+      - name: "Normalize"
+        mean: [0.1307]
+        std: [0.3081]
+    val:
+      - name: "Normalize" 
+        mean: [0.1307]
+        std: [0.3081]
+
+# 模型配置
+model:
+  name: "lenet"
+  input_size: [28, 28]
+  num_classes: 10
+  grayscale: True
+
+# 可视化配置
+visualization:
+  save_dir: "../runs"          # 基础保存路径
+  colors:
+    train: "#FF6D00"         # 训练曲线颜色
+    val: "#2962FF"           # 验证曲线颜色
+  figure_size: [10, 6]       # 图像尺寸
+  dpi: 300                   # 图像分辨率
+  save_formats: ["png", "pdf"] # 保存格式
+
+# 日志配置
+logging:
+  log_dir: "../runs"
+  name: ""
+  filemode: "w"
