@@ -13,7 +13,10 @@ dist/
 *.pt
 *.bin
 *.h5
-datasets/
+datasets/*
+
+# runs
+runs/*
 
 # IDE
 .vscode/
