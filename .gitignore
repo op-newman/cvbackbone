@@ -14,11 +14,11 @@ dist/
 *.bin
 *.h5
 datasets/*
-!datasets/.gitkeep
+!datasets/README.md
 
 # runs
 runs/*
-!runs/.gitkeep
+!runs/README.md
 
 # IDE
 .vscode/
