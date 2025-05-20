@@ -13,10 +13,10 @@ dist/
 *.pt
 *.bin
 *.h5
-datasets/*
+datasets/.gitkeep
 
 # runs
-runs/*
+runs/.gitkeep
 
 # IDE
 .vscode/
