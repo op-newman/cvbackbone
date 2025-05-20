@@ -1,0 +1,47 @@
+2025-05-20 16:38:51 - INFO - Loaded config from configs/lenet.yaml
+2025-05-20 16:38:51 - INFO - Training Configuration:
+2025-05-20 16:38:51 - INFO - [MODEL]
+2025-05-20 16:38:51 - INFO - name: lenet
+2025-05-20 16:38:51 - INFO - input_size: [28, 28]
+2025-05-20 16:38:51 - INFO - num_classes: 10
+2025-05-20 16:38:51 - INFO - grayscale: True
+2025-05-20 16:38:51 - INFO - [DATA]
+2025-05-20 16:38:51 - INFO - name: mnist
+2025-05-20 16:38:51 - INFO - root: ../datasets/mnist
+2025-05-20 16:38:51 - INFO - batch_size: 64
+2025-05-20 16:38:51 - INFO - num_workers: 4
+2025-05-20 16:38:51 - INFO - transform: {'train': [{'name': 'tensor'}, {'name': 'RandomRotation', 'degrees': 15}, {'name': 'Normalize', 'mean': [0.1307], 'std': [0.3081]}], 'val': [{'name': 'tensor'}, {'name': 'Normalize', 'mean': [0.1307], 'std': [0.3081]}]}
+2025-05-20 16:38:51 - INFO - [TRAINING]
+2025-05-20 16:38:51 - INFO - epochs: 10
+2025-05-20 16:38:51 - INFO - device: cuda
+2025-05-20 16:38:51 - INFO - optimizer: {'type': 'adam', 'lr': 0.001, 'weight_decay': 0.0001}
+2025-05-20 16:38:51 - INFO - lr_scheduler: {'type': 'step', 'step_size': 5, 'gamma': 0.1}
+2025-05-20 16:38:51 - INFO - --------------------------------------------------
+2025-05-20 16:38:51 - INFO - Model Architecture:
+2025-05-20 16:38:51 - INFO - LeNet(
+  (features): Sequential(
+    (0): Conv2d(1, 6, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    (1): ReLU()
+    (2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (3): Conv2d(6, 16, kernel_size=(5, 5), stride=(1, 1))
+    (4): ReLU()
+    (5): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (classifier): Sequential(
+    (0): Linear(in_features=400, out_features=120, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=120, out_features=84, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=84, out_features=10, bias=True)
+  )
+)
+2025-05-20 16:38:51 - INFO - Total Parameters: 61,706
+2025-05-20 16:38:51 - INFO - Trainable Parameters: 61,706
+2025-05-20 16:38:51 - INFO - --------------------------------------------------
+2025-05-20 16:38:51 - INFO - Data loaded: 60000 train, 10000 val samples
+2025-05-20 16:38:51 - INFO - Starting training...
+2025-05-20 16:39:15 - INFO - Epoch 001 | Train Loss: 0.2747 | Val Loss: 0.0743 | Val Acc: 97.51% | Best Acc: 97.51%
+2025-05-20 16:39:15 - INFO - Checkpoint saved to ..\runs\lenet\checkpoints\best_model_epoch1_acc0.9751.pth (Acc: 97.51%)
+2025-05-20 16:39:36 - INFO - Epoch 002 | Train Loss: 0.0877 | Val Loss: 0.0530 | Val Acc: 98.28% | Best Acc: 98.28%
+2025-05-20 16:39:36 - INFO - Checkpoint saved to ..\runs\lenet\checkpoints\best_model_epoch2_acc0.9828.pth (Acc: 98.28%)
+2025-05-20 16:39:59 - INFO - Training completed in 0:01:08 | Best Val Acc: 98.28%
