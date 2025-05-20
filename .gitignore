@@ -13,9 +13,7 @@ dist/
 *.pt
 *.bin
 *.h5
-data/
-logs/
-checkpoints/
+datasets/
 
 # IDE
 .vscode/
